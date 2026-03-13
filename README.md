@@ -76,7 +76,7 @@ python -m src.cli full-run
 ## Current Progress
 
 - [x] Architecture design complete
-- [ ] Dependencies installation
+- [x] Dependencies installation
 - [ ] Core implementation
 - [ ] Testing
 - [ ] Documentation
