@@ -3,7 +3,7 @@
 **Mission:** Create a stock agent that pulls the best stocks in these 5 categories: profit margin operating margin free cash flow return on investment capital and interest coverage ratio. Also create a guide telling users how they can find these metrics themselves
 
 ## Phase 1: Setup & Planning
-- [x] Review requirements and design architecture
+- [ ] Review requirements and design architecture
 - [ ] Set up development environment and dependencies
 - [ ] Create project structure
 

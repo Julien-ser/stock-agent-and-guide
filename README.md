@@ -1,29 +1,89 @@
-# Project Template
+# Stock Agent and Guide
 
-This is a template for new projects created via `wiggum_master.sh create`.
+**Mission:** Create a stock agent that pulls the best stocks in 5 key financial categories and provides a guide for users to find these metrics themselves.
 
-Each project:
-- Lives in `projects/<project-name>/`
-- Has its own GitHub repository
-- Runs its own autonomous OpenCode agent loop
-- Tracks progress in TASKS.md
+---
+
+## Overview
+
+This project consists of two main components:
+
+1. **Stock Agent** - Automatically analyzes stocks and ranks them by:
+   - Profit Margin
+   - Operating Margin
+   - Free Cash Flow
+   - Return on Invested Capital (ROIC)
+   - Interest Coverage Ratio
+
+2. **User Guide** - Educational documentation showing how to find these metrics manually
+
+---
 
 ## Setup
 
-1. Create: `bash wiggum_master.sh create "my-project" "Description"`
-2. View: `cat projects/my-project/README.md`
-3. Initialize: `cd projects/my-project && opencode /init --yes`
-4. Run: `cd projects/my-project && bash wiggum.sh`
+### Prerequisites
+- Python 3.8+
+- pip
 
-## Files
+### Installation
 
-- **README.md** - Project documentation
-- **TASKS.md** - Development task list
-- **prompt.txt** - Agent instructions (project-specific)
-- **AGENTS.md** - Project context (auto-generated)
-- **src/** - Source code directory
-- **tests/** - Test files
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-## Customization
+# Run the stock analysis agent
+python -m src.cli --help
+```
 
-Update TASKS.md with your project goals, then let the agent handle it!
+---
+
+## Project Structure
+
+```
+stock-agent-and-guide/
+├── src/
+│   ├── stock_agent.py      # Main agent logic
+│   ├── data_fetcher.py     # Fetch financial data from Yahoo Finance
+│   ├── analyzer.py         # Calculate and rank metrics
+│   ├── guide_generator.py  # Generate user guide
+│   └── cli.py              # Command-line interface
+├── tests/
+│   ├── test_data_fetcher.py
+│   └── test_analyzer.py
+├── output/                 # Analysis results and guides
+├── data/                   # Data caching
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Usage
+
+```bash
+# Analyze top stocks in all categories
+python -m src.cli analyze --universe sp500
+
+# Generate user guide
+python -m src.cli generate-guide
+
+# Both operations
+python -m src.cli full-run
+```
+
+---
+
+## Current Progress
+
+- [x] Architecture design complete
+- [ ] Dependencies installation
+- [ ] Core implementation
+- [ ] Testing
+- [ ] Documentation
+- [ ] Deployment
+
+---
+
+## License
+
+MIT
