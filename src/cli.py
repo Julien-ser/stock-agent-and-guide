@@ -29,11 +29,17 @@ def analyze(universe):
         for i, stock in enumerate(stocks, 1):
             name = stock.get("name", stock["ticker"])
             value = stock.get(metric)
-            click.echo(
-                f"  {i}. {stock['ticker']} ({name}): {value:.2%}"
-                if isinstance(value, float)
-                else f"  {i}. {stock['ticker']} ({name}): {value}"
-            )
+            if value is None:
+                formatted = "N/A"
+            elif metric in ["profit_margin", "operating_margin", "roic"]:
+                formatted = f"{value:.2%}"
+            elif metric == "interest_coverage":
+                formatted = f"{value:.1f}x"
+            elif metric == "free_cash_flow":
+                formatted = f"${value / 1e9:.2f}B"
+            else:
+                formatted = str(value)
+            click.echo(f"  {i}. {stock['ticker']} ({name}): {formatted}")
 
     click.echo(f"\nResults saved to output/rankings_{universe}.json")
 
