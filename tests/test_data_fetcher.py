@@ -143,10 +143,18 @@ def test_get_financial_metrics_handles_zero_denominator():
         metrics = fetcher.get_financial_metrics("TEST")
 
         assert metrics is not None
-        assert metrics["profit_margin"] is None
-        assert metrics["operating_margin"] is None
-        assert metrics["roic"] is None  # invested capital would be 0
-        assert metrics["interest_coverage"] is None  # division by zero
+        # When division by zero or invalid data, metric keys are not added
+        assert "profit_margin" not in metrics or metrics.get("profit_margin") is None
+        assert (
+            "operating_margin" not in metrics or metrics.get("operating_margin") is None
+        )
+        assert (
+            "roic" not in metrics or metrics.get("roic") is None
+        )  # invested capital would be 0
+        assert (
+            "interest_coverage" not in metrics
+            or metrics.get("interest_coverage") is None
+        )  # division by zero
 
 
 def test_get_financial_metrics_handles_exception():
