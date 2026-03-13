@@ -6,7 +6,7 @@ from pathlib import Path
 class GuideGenerator:
     """Creates documentation for users"""
 
-    def generate(self, output_path: str = "output/guide.md") -> None:
+    def generate(self, output_path: str | Path = "output/guide.md") -> None:
         """Generate the user guide
 
         Creates a markdown file explaining how to find the 5 key metrics
