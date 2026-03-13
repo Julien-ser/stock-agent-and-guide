@@ -49,7 +49,10 @@ stock-agent-and-guide/
 │   └── cli.py              # Command-line interface
 ├── tests/
 │   ├── test_data_fetcher.py
-│   └── test_analyzer.py
+│   ├── test_analyzer.py
+│   ├── test_stock_agent.py
+│   ├── test_guide_generator.py
+│   └── test_cli.py
 ├── output/                 # Analysis results and guides
 ├── data/                   # Data caching
 ├── requirements.txt
@@ -78,8 +81,8 @@ python -m src.cli full-run
 - [x] Architecture design complete
 - [x] Dependencies installation
 - [x] Core implementation
-- [ ] Testing
-- [ ] Documentation (guide generation complete)
+- [x] Testing (all 27 tests passing)
+- [x] Documentation (guide generation complete)
 - [ ] Deployment
 
 ---

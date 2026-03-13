@@ -123,5 +123,5 @@ Alternative: SEC EDGAR filings, Morningstar, or brokerage platforms
 """
 
         output_path = Path(output_path)
-        output_path.parent.mkdir(exist_ok=True)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(guide_content)
